@@ -1,64 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">
+  Space Flight News API
+</h1>
+<br>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+<img src="https://static.wixstatic.com/media/3c43a1_6c07c4089196418c821432295a0dcb05~mv2.png/v1/crop/x_0,y_258,w_4501,h_985/fill/w_540,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Space%20Flight%20News%20Logo%20-%20CREAM%20BASE%20(MAIN)_Website%20Banner.png">
+</div>
+<br>
 
-## About Laravel
+##  👩🏽‍💻 Technologies
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project was developed with the following technologies:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Laravel 8](https://laravel.com/docs/8.x/releases)
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+- [Docker](https://www.docker.com/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 How to run
 
-## Learning Laravel
+Clone the repository and access the project.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+$ git clone https://github.com/raquelizek/space-flight_api.git
+$ cd space-flight_api
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To start the project without Docker:
+```bash
+# Run:
+$ composer install
+# And start the application:
+$ php artisan serve
 
-## Laravel Sponsors
+# Run this commands to install MongoDB Package:
+$ sudo pecl install mongodb
+#Add the following line to your php.ini file:
+extension="mongodb.so"
+#Run the following command to add the MongoDB package for Laravel:
+$ composer require jenssegers/mongodb
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#Configure MongoDB Database:
 
-### Premium Partners
+#Add your database connection information environment variable called DB_URI. Make sure to include the correct authentication information.
+#Set the default database connection name in config\database.php:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+'default' => env('DB_CONNECTION', 'mongodb'),
 
-## Contributing
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To start the project with Docker:
+```bash
+# Run the command which will build the application:
+$ docker-compose build api 
+#Run the command to upload the container:
+$ docker-compose up -d
+#Run the command to list the containers:
+$ docker-compose ps
+#Run the command:
+$ docker-compose exec api rm -rf vendor composer.lock
+#Run the command to install composer:
+$ docker-compose exec api composer install
 
-## Code of Conduct
+#The last thing we need to do before testing the application is to generate a unique application key with the artisan Laravel:
+$ docker-compose exec api php artisan key:generate
+#Now go to your browser and access your server’s domain name or IP address on port 9000:
+http://localhost:9000
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#Configure MongoDB Database:
+# First log into the running container
+$ docker exec -it spaceflight-api/bin/bash
 
-## Security Vulnerabilities
+# List folder content
+$ ls /usr/local/etc/php
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Which outputs following line
+conf.d  php.ini-development  php.ini-production
 
-## License
+#Add the following line to your php.ini-production file:
+extension="mongodb.so"
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 💻 Project
+
+Space Flight News is a platform where you will find information about space flights.
+
+This is a challenge by [Codesh](https://coodesh.com/)
+
+---
