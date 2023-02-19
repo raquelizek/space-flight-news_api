@@ -10,7 +10,7 @@ class SeedDatabase
 {
   public function execute()
   {
-    $content = file_get_contents('https://api.spaceflightnewsapi.net/v3/articles?_limit=25');
+    $content = file_get_contents('https://api.spaceflightnewsapi.net/v3/articles?_limit=250');
     $articles = json_decode($content);
 
     foreach ($articles as $article) {
