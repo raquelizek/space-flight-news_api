@@ -1,0 +1,30 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "APIs For Thrift Store",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/data.json": {
+            "get": {
+                "operationId": "1b111d67e3bda8e2fa07dcb318a9a42f",
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

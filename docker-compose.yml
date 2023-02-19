@@ -1,0 +1,21 @@
+version: '3.8'
+services: 
+  api:
+    build:
+      args:
+        user: user
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    container_name: spaceflight-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - spaceflight
+networks:
+  spaceflight:
+    driver: bridge
