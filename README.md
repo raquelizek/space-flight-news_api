@@ -78,6 +78,11 @@ conf.d  php.ini-development  php.ini-production
 
 #Add the following line to your php.ini-production file:
 extension="mongodb.so"
+
+#Then run:
+$ docker-compose down 
+#And:
+$ docker-compose up -d
 ```
 
 ## 💻 Project
