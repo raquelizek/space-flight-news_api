@@ -82,6 +82,7 @@ extension="mongodb.so"
 #Then run:
 $ docker-compose down 
 #And:
+$ docker-compose build api 
 $ docker-compose up -d
 ```
 
